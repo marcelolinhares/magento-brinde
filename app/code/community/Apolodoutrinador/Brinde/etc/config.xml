@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Apolodoutrinador_Brinde>
+             <version>0.3.1</version>
+        </Apolodoutrinador_Brinde>
+    </modules>
+    <global>
+
+		<!-- setup models -->
+		<models>
+	      <brinde>
+	        <class>Apolodoutrinador_Brinde_Model</class>
+	      </brinde>
+	    </models>
+
+
+	    <!-- setup blocks -->
+	    <blocks>
+            <brinde>
+                <class>Apolodoutrinador_Brinde_Block</class>
+            </brinde>
+        </blocks>
+
+    	<!-- resources permite que o módulo faça acesso de leitura e escrita no banco, informa qual conexão utilizar -->
+		<resources>
+			<brinde_setup>
+				<setup>
+					<module>Apolodoutrinador_Brinde</module>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</brinde_setup>
+			<brinde_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</brinde_write>
+			<brinde_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</brinde_read>
+		</resources>
+		
+	</global>
+
+	<frontend>
+
+		<routers>
+	        <brinde>
+	            <use>standard</use>
+	            <args>
+	                <module>Apolodoutrinador_Brinde</module>
+	                <frontName>api-brindes</frontName>
+	            </args>
+	        </brinde>
+	    </routers>
+
+		<!-- add events to project -->
+		<events>
+		 
+		 <checkout_cart_save_after>
+		       <observers>
+		        <identificador>
+		          <model>brinde/Observer</model>
+		          <method>addBrinde</method>
+		        </identificador>
+		      </observers>
+		    </checkout_cart_save_after>
+  		</events>
+
+
+		<layout>
+            <updates>
+                <brinde>
+                    <file>brinde.xml</file>
+                </brinde>
+            </updates>
+        </layout>
+    </frontend>
+</config>

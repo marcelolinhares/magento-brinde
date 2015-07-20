@@ -1,0 +1,6 @@
+# Comments are supported, begin a line with a hash
+app/code/community/Apolodoutrinador/Brinde                      app/code/community/Apolodoutrinador/Brinde
+app/design/frontend/base/default/layout/brinde.xml              app/design/frontend/base/default/layout/brinde.xml 
+app/design/frontend/base/default/template/brinde                app/design/frontend/base/default/template/brinde
+
+app/etc/modules/Apolodoutrinador_Brinde.xml                     app/etc/modules/Apolodoutrinador_Brinde.xml 
